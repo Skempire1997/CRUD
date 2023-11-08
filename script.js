@@ -3,7 +3,6 @@ const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
 
 registerBtn.addEventListener('click', () => {
-    form-container.enterData();
     container.classList.add("active");
 });
 
@@ -19,7 +18,7 @@ let phone = document.getElementById("phone");
     // when user click on submit button
     function enterData() {
         let studentData = fetchData();
-        cosole.log(studentData)
+        cosole.log(student)
         if (selectedrow == null) {
             addData(studentData);
 
