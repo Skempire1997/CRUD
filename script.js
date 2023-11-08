@@ -3,6 +3,7 @@ const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
 
 registerBtn.addEventListener('click', () => {
+    form-container.enterData();
     container.classList.add("active");
 });
 
@@ -17,19 +18,20 @@ let phone = document.getElementById("phone");
 
     // when user click on submit button
     function enterData() {
-
         let studentData = fetchData();
+        cosole.log(studentData)
         if (selectedrow == null) {
-        
-        addData(studentData);
+            addData(studentData);
+
         }
         
-        else{
-        
-            updateData(studentData);
-        }
+        // else{
+        //     updateData(studentData);
+        // }
            clearForm();
         }
+
+
     // a function to fetch the data
     function fetchData() {
             let studentData = {};
@@ -44,18 +46,17 @@ let phone = document.getElementById("phone");
     // function to add data inside the table
     
     function addData(data) {
+        
         let table = document.getElementById("studentList").getElementsByTagName("tbody")[0];
         let newRow = table.insertRow(0);
         cell1 = newRow.insertCell(0);
-        cell1.innerHTML = studentData.userName;
-        cell2 = newRow. insertCell(1);
+        cell1.innerHTML = data.userName;
+        cell2 = newRow.insertCell(1);
         cell2.innerHTML = data.email;
         cel13 = newRow.insertCell(2);
         cel13.innerHTML = data.phone;
        
-        cel14= newRow.insertCell(3);
-        cel14.innerHTML = `<button onclick="editData(this)">EDIT</button>
-        <button onclick="deleteData(this)">DELETE</button> `;
+       
     }
     // function to clear form
     function clearForm(){
@@ -66,13 +67,13 @@ let phone = document.getElementById("phone");
         selectedrow=null;
     }
 
-//         // update function
-// function updateData(data){
-//     selectedrow.cells[0].innerHTML= data.userName; 
-//     selectedrow.cells[1].innerHTML= data.email;
-//     selectedrow.cells[2].innerHTML= data.phone; 
+        // update function
+function updateData(data){
+    selectedrow.cells[0].innerHTML= data.userName; 
+    selectedrow.cells[1].innerHTML= data.email;
+    selectedrow.cells[2].innerHTML= data.phone; 
    
-// }
+}
     
 //     // delete function
 // function deleteData(btn){
